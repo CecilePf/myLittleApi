@@ -1,0 +1,5 @@
+transaction:
+    content:
+        min_length: "Le contenu doit contenir au moins 2 caractères."
+        max_length: "Le contenu doit contenir 255 caractères maximum."
+        not_blank: "Le contenu ne doit pas être vide."
