@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class TransactionController extends AbstractController
 {
@@ -32,7 +33,10 @@ class TransactionController extends AbstractController
     }
 
     /**
+     * Get transactions list
+     * 
      * @Route("/api/transactions", name="api_transactions", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      * 
      * @return JsonResponse
      */
@@ -44,7 +48,11 @@ class TransactionController extends AbstractController
     }
 
     /**
+     * Create one transaction
+     * 
      * @Route("/api/transaction", name="api_post_transaction", methods={"POST"})
+     * @IsGranted("ROLE_USER")
+     * 
      * @param Transaction $transaction
      * 
      * @return JsonResponse
