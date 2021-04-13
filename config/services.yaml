@@ -28,3 +28,7 @@ services:
     App\Request\ParamConverter\PostConverter:
         tags:
             - { name: 'request.param_converter', priority: 1}
+
+    App\Request\ParamConverter\PatchConverter:
+        tags:
+            - { name: 'request.param_converter' }

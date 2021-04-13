@@ -69,4 +69,27 @@ class TransactionController extends AbstractController
 
         return $this->apiService->generateJsonResponse($transaction);
     }
+
+    /**
+     * Update one transaction
+     * 
+     * @Route("/api/transaction/{id}", name="api_edit_transaction", methods={"PATCH"})
+     * @IsGranted("ROLE_ADMIN")
+     * 
+     * @param Transaction $transaction
+     * 
+     * @return JsonResponse
+     */
+    public function edit(Transaction $transaction): JsonResponse
+    {
+        $errors = $this->validator->validate($transaction);
+        if ($errors->count() > 0) {
+            return $this->apiService->generateJsonBadRequest($errors);
+        }
+
+        // $this->em->persist($transaction);
+        $this->em->flush();
+
+        return $this->apiService->generateJsonResponse($transaction);
+    }
 }
