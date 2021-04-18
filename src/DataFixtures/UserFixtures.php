@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User;
-        $user->setEmail('user@paygreen.fr')
+        $user->setEmail('user@test.fr')
             ->setRoles(['ROLE_USER'])
             ->setPassword($this->passwordEncoder->encodePassword(
             $user,
@@ -27,7 +27,7 @@ class UserFixtures extends Fixture
         ));
 
         $admin = new User;
-        $admin->setEmail('admin@paygreen.fr')
+        $admin->setEmail('admin@test.fr')
             ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
             ->setPassword($this->passwordEncoder->encodePassword(
             $admin,
